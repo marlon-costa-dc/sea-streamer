@@ -422,7 +422,7 @@ impl Node {
             }
         }
 
-        fn ad(v: &Vec<PendingAck>) -> AckDisplay {
+        fn ad(v: &Vec<PendingAck>) -> AckDisplay<'_> {
             AckDisplay(v)
         }
 

@@ -632,7 +632,7 @@ struct InternalMess<'a> {
     arg3: &'a str,
 }
 
-fn parse_internal_mess(bytes: &[u8]) -> Option<InternalMess> {
+fn parse_internal_mess(bytes: &[u8]) -> Option<InternalMess<'_>> {
     let Ok(string) = std::str::from_utf8(bytes) else {
         return None;
     };
