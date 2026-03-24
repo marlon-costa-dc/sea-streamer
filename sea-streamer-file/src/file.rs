@@ -1,4 +1,4 @@
-use std::{fmt::Display, os::unix::prelude::MetadataExt, str::FromStr, sync::Arc};
+use std::{fmt::Display, str::FromStr, sync::Arc};
 
 use crate::{ByteBuffer, ByteSource, Bytes, FileErr};
 use sea_streamer_runtime::file::{
@@ -293,5 +293,5 @@ impl FromStr for FileId {
 }
 
 async fn file_size_of(file: &File) -> Result<u64, FileErr> {
-    Ok(file.metadata().await.map_err(FileErr::IoError)?.size())
+    Ok(file.metadata().await.map_err(FileErr::IoError)?.len())
 }
